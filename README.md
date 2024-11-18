@@ -1,6 +1,6 @@
 # Project Data 550
 
-This repository contains the code and data for the final project. The project involves analyzing motor vehicle occupant death rates by age and gender across different states in the U.S. for the years 2012 and 2014. 
+This repository contains the code and data for my final project. The project involves analyzing motor vehicle occupant death rates by age and gender across different states in the U.S. for the years 2012 and 2014. 
 
 #Project Overview
 The goal of this analysis is to compare the motor vehicle occupant death rates for all ages across different states for the years 2012 and 2014. The analysis generates a table and a bar plot to visualize the trends in these death rates.

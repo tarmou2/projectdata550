@@ -43,4 +43,3 @@ ggplot(data, aes(x = State)) +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
-install.packages(c("rmarkdown", "base64enc", "digest", "htmltools", "jsonlite"))
