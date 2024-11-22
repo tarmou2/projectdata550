@@ -15,6 +15,7 @@ To generate the final report, follow these steps:
 install.packages(c("ggplot2", "dplyr", "knitr", "readr"))
 ```
 #Generate Table and Figure
+
   ```bash
 Rscript code/table_creation.R
 Rscript code/figure_creation.R
