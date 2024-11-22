@@ -8,11 +8,14 @@ The goal of this analysis is to compare the motor vehicle occupant death rates f
 #How to Generate the Final Report
 To generate the final report, follow these steps:
 
+#Install Packages
+install.packages(c("ggplot2", "dplyr", "knitr", "readr"))
+
+#Fork
   Clone this repository:
    ```bash
    git clone https://github.com/tarmou2/projectdata550
    
-install.packages(c("ggplot2", "dplyr", "knitr", "readr"))
 ```
 #Generate Table and Figure
 
