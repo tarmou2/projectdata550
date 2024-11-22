@@ -13,9 +13,10 @@ To generate the final report, follow these steps:
    git clone https://github.com/tarmou2/projectdata550
    
 install.packages(c("ggplot2", "dplyr", "knitr", "readr"))
-
-source("code/table_creation.R")
-source("code/figure_creation.R")
-
+```
+#Generate Table and Figure
+  ```bash
+Rscript code/table_creation.R
+Rscript code/figure_creation.R
 rmarkdown::render("output/final_report.Rmd")
-
+```
