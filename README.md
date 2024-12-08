@@ -50,4 +50,17 @@ To restore the environment and synchronize the required packages:
 make install
 renv::restore()
 ```
+# Build the Docker Image
+To build the Docker image, run:
+```bash
+docker build -t tarmou2/projectdata550 .
+```
+
+# Generating the Report
+To generate the report, run:
+```bash
+docker run -it --rm -v "C:/Users/tania/OneDrive/Documents/projectdata550/projectdata550/data:/project/data" \
+-v "C:/Users/tania/OneDrive/Documents/projectdata550/projectdata550/output:/project/output" \
+tarmou2/projectdata550:latest Rscript -e "rmarkdown::render('/project/output/final_report.Rmd', output_dir = '/project/output')"
+```
 

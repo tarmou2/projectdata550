@@ -15,7 +15,7 @@ library(dplyr)
 library(knitr)
 
 # Load data
-data <- read.csv("C:/Users/tania/OneDrive/Documents/projectdata550/projectdata550/data/Motor_Vehicle_Occupant_Death_Rate__by_Age_and_Gender__2012___2014__HHS_Region_1_-_Boston_20241007.csv")
+data <- read.csv("/project/data/motorvehicledata.csv")
 
 # Select relevant columns
 table_data <- data %>%

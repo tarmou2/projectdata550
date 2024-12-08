@@ -3,7 +3,7 @@ library(knitr)
 library(readr)
 getwd()
 
-data <- read.csv("C:/Users/tania/OneDrive/Documents/projectdata550/projectdata550/data/Motor_Vehicle_Occupant_Death_Rate__by_Age_and_Gender__2012___2014__HHS_Region_1_-_Boston_20241007.csv")
+data <- read.csv("C:/Users/tania/OneDrive/Documents/projectdata550/projectdata550/data/motorvehicledata.csv")
 
 table_data <- data %>%
   select(State, All.Ages..2012, All.Ages..2014)
