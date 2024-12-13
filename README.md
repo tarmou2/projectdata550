@@ -32,35 +32,34 @@ To install the required R packages for this project, you can use `renv`. Follow 
 2. Set up the environment using renv:
 ```
 make install
--This will install all the required packages listed in the lockfile.
 ```
 # Generate Table and Figure
 ```
-
 Rscript code/table_creation.R
 Rscript code/figure_creation.R
-
 rmarkdown::render("output/final_report.Rmd")
+
 ```
 
 # To Restore
 To restore the environment and synchronize the required packages:
 ```
-
 make install
 renv::restore()
 ```
 # Build the Docker Image
 To build the Docker image, run:
-```bash
+```
 docker build -t tarmou2/projectdata550 .
 ```
+Link to DockerHub
+The Docker image for this project:
+https://hub.docker.com/r/tarmou2/projectdata550
 
 # Generating the Report
 To generate the report, run:
-```bash
-docker run -it --rm -v "C:/Users/tania/OneDrive/Documents/projectdata550/projectdata550/data:/project/data" \
--v "C:/Users/tania/OneDrive/Documents/projectdata550/projectdata550/output:/project/output" \
-tarmou2/projectdata550:latest Rscript -e "rmarkdown::render('/project/output/final_report.Rmd', output_dir = '/project/output')"
+```
+make generate-report
+
 ```
 

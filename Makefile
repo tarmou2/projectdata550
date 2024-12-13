@@ -1,15 +1,17 @@
 # Generate the final report
-report: final_report.html
+report: report/final_report.html
 
-final_report.html: final_report.Rmd
-    Rscript -e "rmarkdown::render('final_report.Rmd')"
+report/final_report.html: final_report.Rmd
+	<TAB>Rscript -e "rmarkdown::render('final_report.Rmd', output_file = 'report/final_report.html')"
 
 # Restore the package environment
 install:
-	Rscript -e "renv::restore()"
+	<TAB>Rscript -e "renv::restore()"
 
+# Generate report with Docker
 generate-report:
+	mkdir -p report
 	docker run -it --rm \
-	-v "C:/Users/tania/OneDrive/Documents/projectdata550/projectdata550/data:/project/data" \
-	-v "C:/Users/tania/OneDrive/Documents/projectdata550/projectdata550/output:/project/output" \
-	tarmou2/projectdata550:latest Rscript -e "rmarkdown::render('/project/output/final_report.Rmd', output_dir = '/project/output')"
+    -v "$(pwd)/data:/project/data" \
+    -v "$(pwd)/report:/project/report" \
+    tarmou2/projectdata550:latest ls /project
