@@ -50,7 +50,7 @@ renv::restore()
 # Build the Docker Image
 To build the Docker image, run:
 ```
-docker build -t tarmou2/projectdata550 .
+  docker build -t tarmou2/projectdata550 .
 ```
 Link to DockerHub
 The Docker image for this project:
@@ -59,7 +59,7 @@ https://hub.docker.com/r/tarmou2/projectdata550
 # Generating the Report
 To generate the report, run:
 ```
-make generate-report
+  make generate-report
 
 ```
 
