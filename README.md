@@ -48,18 +48,25 @@ make install
 renv::restore()
 ```
 # Build the Docker Image
+This will create a Docker image named tarmou2/projectdata550 based on the instructions in the Dockerfile.
 To build the Docker image, run:
 ```
-  docker build -t tarmou2/projectdata550 .
+docker build -t tarmou2/projectdata550 .
 ```
+
 Link to DockerHub
 The Docker image for this project:
 https://hub.docker.com/r/tarmou2/projectdata550
 
 # Generating the Report
+This command mounts the data, output, and report directories to the container, runs the Docker image, and executes the R script to generate the final report in the report directory.
 To generate the report, run:
 ```
-  make generate-report
+docker run -it --rm \
+  -v "$(pwd)/data:/project/data" \
+  -v "$(pwd)/output:/project/output" \
+  -v "$(pwd)/report:/project/report" \
+  tarmou2/projectdata550:latest Rscript -e "rmarkdown::render('/project/output/final_report.Rmd', output_dir = '/project/report')"
 
 ```
-
+After running this command, the final report will be available in the `report` directory.

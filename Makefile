@@ -1,19 +1,18 @@
 # Generate the final report
-report: report/final_report.html
+report: final_report.html
 
-report/final_report.html: final_report.Rmd
-	mkdir -p report
-	Rscript -e "rmarkdown::render('final_report.Rmd', output_file = 'report/final_report.html')"
+final_report.html: final_report.Rmd
+	Rscript -e "rmarkdown::render('final_report.Rmd')"
 
 # Restore the package environment
 install:
-	Rscript -e "if (!requireNamespace('renv', quietly = TRUE)) install.packages('renv'); renv::restore()"
+	Rscript -e "renv::restore()"
 
-# Build the Docker image
-docker-build:
-	docker build -t tarmou2/projectdata550 .
-
-# Generate the report with Docker
+# Generate the final report
 generate-report:
-	mkdir -p report
-	docker run --rm -v "$(pwd):/project" tarmou2/projectdata550 Rscript -e "renv::restore()"
+	docker build -t tarmou2/projectdata550 .
+	docker run -it --rm \
+      -v "$(pwd)/data:/project/data" \
+      -v "$(pwd)/output:/project/output" \
+      -v "$(pwd)/report:/project/report" \
+      my-project Rscript -e "rmarkdown::render('final_report.Rmd', output_dir = 'report')"
